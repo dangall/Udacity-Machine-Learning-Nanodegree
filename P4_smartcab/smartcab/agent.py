@@ -118,7 +118,7 @@ class LearningAgent(Agent):
                 action = random.choice(self.valid_actions)
             else:
                 # Choose the action with the highest Q-value
-                action = get_maxQ(self, state)
+                action = self.get_maxQ(state)
         else:
             action = random.choice(self.valid_actions)
         ########### 
