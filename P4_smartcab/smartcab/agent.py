@@ -52,7 +52,7 @@ class LearningAgent(Agent):
         inputs = self.env.sense(self)           # Visual input - intersection light and traffic
         deadline = self.env.get_deadline(self)  # Remaining deadline
     
-        state = (waypoint, inputs)
+        state = (waypoint, inputs.values())
 
         return state
 
