@@ -98,6 +98,7 @@ class LearningAgent(Agent):
             old_Q_dict[state] = new_action_dict
             self.Q = old_Q_dict
             #self.Q.update({state: {act: 0.0 for act in self.valid_actions}})
+            #self.Q[state] = new_action_dict
 
         return
 
