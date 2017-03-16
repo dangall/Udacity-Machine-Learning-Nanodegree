@@ -258,46 +258,51 @@ class Simulator(object):
 
             # Previous State
             if status['state']:
-                print "Agent previous state: {}".format(status['state'])
+                ###print "Agent previous state: {}".format(status['state'])
+                pass###REMOVE THIS
             else:
                 print "!! Agent state not been updated!"
 
             # Result
             if status['violation'] == 0: # Legal
                 if status['waypoint'] == status['action']: # Followed waypoint
-                    print "Agent followed the waypoint {}. (rewarded {:.2f})".format(status['action'], status['reward'])
+                    ###print "Agent followed the waypoint {}. (rewarded {:.2f})".format(status['action'], status['reward'])
+                    pass### REMOVE THIS
                 elif status['action'] == None:
                     if status['light'] == 'red': # Stuck at red light
-                        print "Agent properly idled at a red light. (rewarded {:.2f})".format(status['reward'])
+                        ###print "Agent properly idled at a red light. (rewarded {:.2f})".format(status['reward'])
+                        pass### REMOVE THIS
                     else:
-                        print "Agent idled at a green light with oncoming traffic. (rewarded {:.2f})".format(status['reward'])
+                        ###print "Agent idled at a green light with oncoming traffic. (rewarded {:.2f})".format(status['reward'])
+                        pass### REMOVE THIS
                 else: # Did not follow waypoint
-                    print "Agent drove {} instead of {}. (rewarded {:.2f})".format(status['action'], status['waypoint'], status['reward'])
-            else: # Illegal
-                if status['violation'] == 1: # Minor violation
-                    print "Agent idled at a green light with no oncoming traffic. (rewarded {:.2f})".format(status['reward'])
-                elif status['violation'] == 2: # Major violation
-                    print "Agent attempted driving {} through a red light. (rewarded {:.2f})".format(status['action'], status['reward'])
-                elif status['violation'] == 3: # Minor accident
-                    print "Agent attempted driving {} through traffic and cause a minor accident. (rewarded {:.2f})".format(status['action'], status['reward'])
-                elif status['violation'] == 4: # Major accident
-                    print "Agent attempted driving {} through a red light with traffic and cause a major accident. (rewarded {:.2f})".format(status['action'], status['reward'])
+                    ###print "Agent drove {} instead of {}. (rewarded {:.2f})".format(status['action'], status['waypoint'], status['reward'])
+                    pass ###
+            ###else: # Illegal
+            ###    if status['violation'] == 1: # Minor violation
+            ###        print "Agent idled at a green light with no oncoming traffic. (rewarded {:.2f})".format(status['reward'])
+            ###    elif status['violation'] == 2: # Major violation
+            ###        print "Agent attempted driving {} through a red light. (rewarded {:.2f})".format(status['action'], status['reward'])
+            ###    elif status['violation'] == 3: # Minor accident
+            ###        print "Agent attempted driving {} through traffic and cause a minor accident. (rewarded {:.2f})".format(status['action'], status['reward'])
+            ###    elif status['violation'] == 4: # Major accident
+            ###        print "Agent attempted driving {} through a red light with traffic and cause a major accident. (rewarded {:.2f})".format(status['action'], status['reward'])
            
             # Time Remaining
             if self.env.enforce_deadline:
                 time = (status['deadline'] - 1) * 100.0 / (status['t'] + status['deadline'])
-                print "{:.0f}% of time remaining to reach destination.".format(time)
+                ###print "{:.0f}% of time remaining to reach destination.".format(time)
             else:
                 print "Agent not enforced to meet deadline."
 
         # Starting new trial
         else:
             a = self.env.primary_agent
-            print "Simulating trial. . . "
-            if a.learning:
-                print "epsilon = {:.4f}; alpha = {:.4f}".format(a.epsilon, a.alpha)
-            else:
-                print "Agent not set to learn."
+            ###print "Simulating trial. . . "
+            ###if a.learning:
+                ###print "epsilon = {:.4f}; alpha = {:.4f}".format(a.epsilon, a.alpha)
+            ###else:
+                ###print "Agent not set to learn."
 
                 
     def render(self, trial, testing=False):
