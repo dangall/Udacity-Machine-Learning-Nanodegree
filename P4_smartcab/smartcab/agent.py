@@ -28,12 +28,15 @@ class LearningAgent(Agent):
         #self.decayrate = 0.9851329607687279     # Power-law decay rate of epsilon, 200 runs
         #self.decayrate = 0.9925386444712004    # Power-law decay rate of epsilon, 400 runs
         #self.decayrate = 0.9900639180555423     # Power-law decay rate of epsilon, 300 runs
-        self.decayrate = 0.9950195566196386     # Power-law decay rate of epsilon, 600 runs
+        #self.decayrate = 0.9950195566196386     # Power-law decay rate of epsilon, 600 runs
+        # self.decayrate = 0.9962623371738993      # Power-law decay rate of epsilon, 800 runs
         #self.decayrate = 0.00998577 # For exponential decay, 300 runs
         #self.decayrate = 0.02302585092994046 # For exponential decay, 300 runs with lower tolerance (0.001)
         #self.decayrate = 0.01151292546497023 # For exponential decay, 600 runs with lower tolerance (0.001)
+        self.decayrate = 0.008634694098727672 # For exponential decay, 800 runs with lower tolerance (0.001)
         #self.decayrate = 0.005069251566630422 # For cosine, 300 runs
         #self.decayrate = 0.002534625783315211 # For cosine, 600 runs
+        #self.decayrate = 0.0019009693374864084 # For cosine, 800 runs
         self.runnumber = 1.0 # Counter for the number of runs
 
     def reset(self, destination=None, testing=False):
@@ -55,15 +58,15 @@ class LearningAgent(Agent):
         #self.epsilon = self.epsilon - 0.0016666666666666668
         
         # If power-law: epsilon = a^t
-        self.epsilon = self.epsilon * self.decayrate
+        #self.epsilon = self.epsilon * self.decayrate
         
         # If inverse quadratic: epsilon = 1/t^2
         #self.runnumber = self.runnumber + 1
         #self.epsilon = 1.0 / (self.runnumber**2)
         
         # If exponential decay: epsilon = e^(-a t)
-        #self.runnumber = self.runnumber + 1
-        #self.epsilon = math.exp( - self.decayrate * self.runnumber)
+        self.runnumber = self.runnumber + 1
+        self.epsilon = math.exp( - self.decayrate * self.runnumber)
         
         # If cosine: epsilon = cos(at)
         #self.runnumber = self.runnumber + 1
@@ -101,7 +104,8 @@ class LearningAgent(Agent):
         # Calculate the maximum Q-value of all actions for a given state
         
         action_dict = self.Q[state]
-        maxQ = max(action_dict, key=action_dict.get)
+        maxQ = max(action_dict.values())
+        # # maxQ = max(action_dict, key=action_dict.get)
 
         return maxQ 
         
@@ -132,7 +136,6 @@ class LearningAgent(Agent):
         # Set the agent state and default action
         self.state = state
         self.next_waypoint = self.planner.next_waypoint()
-        action = random.choice([None, "Left", "Right", "Forward"])
         
         if self.learning:
             randomnum = random.random()
@@ -141,7 +144,10 @@ class LearningAgent(Agent):
                 action = random.choice(self.valid_actions)
             else:
                 # Choose the action with the highest Q-value
-                action = self.get_maxQ(state)
+                maxQ = self.get_maxQ(state)
+                action_dict = self.Q[state]
+                viableactions = [actionname for (actionname, rewardvalue) in action_dict.items() if rewardvalue==maxQ]
+                action = random.choice(viableactions)
         else:
             action = random.choice(self.valid_actions)
         ########### 
@@ -165,9 +171,10 @@ class LearningAgent(Agent):
         ###########
         # When learning, implement the value iteration update rule
         #   Use only the learning rate 'alpha' (do not use the discount factor 'gamma')
-        currentQ = self.Q[state][action]
-        newQ = (1 - self.alpha) * currentQ + self.alpha * reward
-        self.Q[state][action] = newQ
+        if self.learning:
+            currentQ = self.Q[state][action]
+            newQ = (1 - self.alpha) * currentQ + self.alpha * reward
+            self.Q[state][action] = newQ
 
         return
 
@@ -226,7 +233,7 @@ def run():
     # Flags:
     #   tolerance  - epsilon tolerance before beginning testing, default is 0.05 
     #   n_test     - discrete number of testing trials to perform, default is 0
-    sim.run(n_test=10, tolerance=0.05)
+    sim.run(n_test=10, tolerance=0.001)
 
 
 if __name__ == '__main__':
