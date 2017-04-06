@@ -22,6 +22,10 @@ A wholesale distributor recently tested a change to their delivery method for so
 
 In the not-so-distant future, taxicab companies across the United States no longer employ human drivers to operate their fleet of vehicles. Instead, the taxicabs are operated by self-driving agents — known as smartcabs — to transport people from one location to another within the cities those companies operate. In major metropolitan areas, such as Chicago, New York City, and San Francisco, an increasing number of people have come to rely on smartcabs to get to where they need to go as safely and efficiently as possible. Although smartcabs have become the transport of choice, concerns arose that a self-driving agent might not be as safe or efficient as human drivers, particularly when considering city traffic lights and other vehicles. To alleviate these concerns, in this project I use reinforcement learning techniques to construct a demonstration of a smartcab operating in real-time to prove that both safety and efficiency can be achieved.
 
+### Image Classification Using Deep Learning
+
+Using Deep Learning written in TensorFlow, I classify images from the CIFAR-10 dataset using a convolutional neural network. I evaluate the accuracy of the model on a validation and test set.
+
 ## Additional info on the Nanodegree
 
 The [Machine Learning Nanodegree](https://www.udacity.com/course/machine-learning-engineer-nanodegree--nd009) takes on average approximately 500 hours to complete, and is based on lectures and six projects. The purpose of the projects is to consolidate the lecture material and showcase some of the tools learned during the course of the Nanodegree. It is also very useful for getting experience with larger projects on frequent and important use-cases in machine learning.
