@@ -1,0 +1,5 @@
+model_checkpoint_path: "trained_model-59"
+all_model_checkpoint_paths: "trained_model-30"
+all_model_checkpoint_paths: "trained_model-40"
+all_model_checkpoint_paths: "trained_model-50"
+all_model_checkpoint_paths: "trained_model-59"
