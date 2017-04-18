@@ -30,7 +30,7 @@ Using Deep Learning written in TensorFlow, I classify images from the CIFAR-10 d
 
 Using a relatively simple but well-trained neural network architecture written using TensorFlow, I classify notMNIST images, exemplified here:
 
-
+![](http://personalpages.to.infn.it/~dgalloni/notMNIST.png)
 
 The convolutional neural network I built is able to classify letters correctly with 96.64% accuracy on the test set. I also include my trained TensorFlow model for loading into the notebook.
 
