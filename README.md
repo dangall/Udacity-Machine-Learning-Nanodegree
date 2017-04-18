@@ -8,6 +8,8 @@ Here is a description of each project, largely taken from the [Udacity course we
 
 ### Predicting Boston Housing Prices
 
+![houseprices](http://personalpages.to.infn.it/~dgalloni/house_prices_smaller.png)
+
 The Boston housing market is highly competitive. Using a few basic machine learning concepts, I find the best selling price for the home of a client. This is done by using the Boston Housing dataset which contains aggregated data on various features for houses in Greater Boston communities, including the median value of homes for each of those areas. In this project I build an optimal model based on a statistical analysis with the (simple) tools available. I then use this model to estimate the best selling price for the client’s home.
 
 ### Finding Donors for CharityML
