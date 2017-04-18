@@ -34,7 +34,7 @@ I evaluate the accuracy of the model on a validation and test set, and with only
 
 ### Letter identification (notMNIST dataset) Using Deep Learning
 
-Using a relatively simple but well-trained neural network architecture written using TensorFlow, I classify notMNIST images, exemplified here:
+Using a relatively simple but well-trained neural network architecture written using TensorFlow, I classify notMNIST images, exemplified here (image taken from [here](http://yaroslavvb.blogspot.it/2011/09/notmnist-dataset.html)):
 
 ![notMNIST](http://personalpages.to.infn.it/~dgalloni/notMNIST_small.png)
 
