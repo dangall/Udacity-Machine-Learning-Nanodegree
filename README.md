@@ -24,13 +24,17 @@ In the not-so-distant future, taxicab companies across the United States no long
 
 ### Image Classification (CIFAR-10) Using Deep Learning
 
-Using Deep Learning written in TensorFlow, I classify images from the CIFAR-10 dataset using a convolutional neural network. I evaluate the accuracy of the model on a validation and test set, and with only a simple modelobtain 61.8% test-set accuracy.
+Using Deep Learning written in TensorFlow, I classify images from the CIFAR-10 dataset using a convolutional neural network. An example of such images is seen here:
+
+![cifar10](http://personalpages.to.infn.it/~dgalloni/cifar10_horse.gif)
+
+I evaluate the accuracy of the model on a validation and test set, and with only a simple model obtain 61.8% test-set accuracy.
 
 ### Letter identification (notMNIST dataset) Using Deep Learning
 
 Using a relatively simple but well-trained neural network architecture written using TensorFlow, I classify notMNIST images, exemplified here:
 
-![notMNIST](http://personalpages.to.infn.it/~dgalloni/notMNIST.png)
+![notMNIST](http://personalpages.to.infn.it/~dgalloni/notMNIST_small.png)
 
 The convolutional neural network I built is able to classify letters correctly with 96.64% accuracy on the test set. I also include my trained TensorFlow model for loading into the notebook.
 
